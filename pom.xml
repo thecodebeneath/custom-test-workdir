@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>custom.test.workdir</groupId>
+    <artifactId>custom-test-workdir</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    
+    <description>
+        Example of how legacy project with assumptions about resource file locations can be tested.
+        The runtime assumption is that this directory structure is used:
+        - application.jar
+        |---- msgs/proj-a.messages
+        |-----msgs/proj-b.messages
+        
+        Testing:
+        - Approach #1 (git commit) works, but has side effect of proj-a resource files include in the proj-b jar
+        - Approach #2 (git commit) will fix the side effect of Approach #1
+    </description>
+
+    <modules>
+        <module>proj-a</module>
+        <module>proj-b</module>
+    </modules>
+    
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+</project>
