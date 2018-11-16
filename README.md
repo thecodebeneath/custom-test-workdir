@@ -24,3 +24,8 @@ and filter include/exclude which files we need for testing proj-b.
 # Surefire Plugin
 Run tests in a custom directory because of MessageManager relative path expectations. Don't use an
 existing maven directory (like target/classes, because those files get included in the proj-b jar.
+
+# Jenkinsfile
+This project also uses a Jenkins pipeline to do a git tag and push upon build success. It makes use
+of the SSH Agent and Credential Bindings plugin to do this. It relies on an Jenkins stored ssh key
+credential with an id of "github".
